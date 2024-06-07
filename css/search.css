@@ -1,0 +1,138 @@
+*{
+  box-sizing: border-box;
+}
+
+html {
+  height: -webkit-fill-available;
+}
+
+body {
+  margin:0;
+  min-height: 100vh;
+  min-height: -webkit-fill-available
+}
+
+.navbar {
+  margin-bottom: 20px;
+}
+
+.bd-placeholder-img {
+  font-size: 1.125rem;
+  text-anchor: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+.b-example-divider {
+  height: 3rem;
+  background-color: rgba(0, 0, 0, .1);
+  border: solid rgba(0, 0, 0, .15);
+  border-width: 1px 0;
+  box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+}
+
+.b-example-vr {
+  flex-shrink: 0;
+  width: 1.5rem;
+  height: 100vh;
+}
+
+.bi {
+  vertical-align: -.125em;
+  fill: currentColor;
+}
+
+.nav-scroller {
+  position: relative;
+  z-index: 2;
+  height: 2.75rem;
+  overflow-y: hidden;
+}
+
+.nav-scroller .nav {
+  display: flex;
+  flex-wrap: nowrap;
+  padding-bottom: 1rem;
+  margin-top: -1px;
+  overflow-x: auto;
+  text-align: center;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+}
+
+  
+  .btn {
+      margin-bottom: 5px;
+  }
+  
+  .grid {
+      position: relative;
+      width: 100%;
+      background: #fff;
+      color: #666666;
+      border-radius: 2px;
+      margin-bottom: 25px;
+      box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .grid .grid-body {
+      padding: 15px 20px 15px 20px;
+      font-size: 0.9em;
+      line-height: 1.9em;
+  }
+  
+  .search table tr td.rate {
+      color: #f39c12;
+      line-height: 50px;
+  }
+  
+  .search table tr:hover {
+      cursor: pointer;
+  }
+  
+  .search table tr td.image {
+    width: 50px;
+  }
+  
+  .search table tr td img {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .search table tr td.rate {
+    color: #f39c12;
+    line-height: 50px;
+  }
+  
+  .search table tr td.price {
+    font-size: 1.5em;
+    line-height: 50px;
+  }
+  
+  .search #price1,
+  .search #price2 {
+    display: inline;
+    font-weight: 600;
+  }
+
+  .input-group-append {
+    cursor: pointer;
+  }
+
+  .vertical-middle {
+    vertical-align: middle !important;
+    text-align: center !important;
+  }
+
+@media (min-width: 768px) {
+  .bd-placeholder-img-lg {
+    font-size: 3.5rem;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .col-row {
+    flex-direction: row;
+  }
+}

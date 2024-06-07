@@ -1,0 +1,31 @@
+  /*nav részleg*/
+  .nav{
+    list-style-type: none;
+    margin: 0;
+    padding: 10px;
+    display: inline;
+}
+a{ 
+  text-decoration:none; 
+}
+footer {
+  text-align: center;
+  padding: 3px;
+  background-color: DarkSalmon;
+  color: white;
+}
+
+/*  link */
+a:link {
+  color: black;
+}
+
+/* rajta tartva link */
+a:hover {
+  color: green;
+}
+
+/* rákattintva link */
+a:active {
+  color: blue;
+}
