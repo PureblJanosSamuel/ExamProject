@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-include("dbconnect.php");
 include("functions.php");
 
 $logged_in = isset($_SESSION['logged_in']) && $_SESSION['logged_in'];

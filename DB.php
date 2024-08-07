@@ -3,14 +3,16 @@ include("dbconnect.php");
 
 class DB{
   static function GET($sql, $arr){
-    $db = new mysqli('localhost', 'root', '', 'otthon_kereso');
+    $db = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
     $stmt = $db->prepare($sql);
-    $types = [];
-    foreach($arr as $item){
-      $types[] = substr(gettype($item),0,1);
+    if(count($arr) != 0){
+      $types = [];
+      foreach($arr as $item){
+        $types[] = substr(gettype($item),0,1);
+      }
+      $types = implode('', $types);
+      $stmt->bind_param($types, ...$arr);
     }
-    $types = implode('', $types);
-    $stmt->bind_param($types, ...$arr);
     $stmt->execute();
     //$stmt->execute($arr);
     return $stmt->get_result();

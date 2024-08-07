@@ -1,11 +1,10 @@
 <?php
-$dbhost = "localhost";
-$dbuser = "root";
-$dbpass = "";
-$dbname = "otthon_kereso";
+define ('DBHOST','localhost');
+define ('DBUSER','root');
+define ('DBPASS','');
+define ('DBNAME','otthon_kereso');
 
-if (!$con = mysqli_connect($dbhost,$dbuser,$dbpass,$dbname))
+if (!$con = mysqli_connect(DBHOST,DBUSER,DBPASS,DBNAME))
 {
 	die("Nem sikerült csatlakozni");
 }
-mysqli_set_charset($con, "utf8");

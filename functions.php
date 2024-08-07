@@ -193,7 +193,7 @@ function removeBugReport($id) {
 
 // Building HTML
 
-function kiir($sql, $sex, $age) {
+function show($sql, $sex, $age) {
 
   $arr = [];
   if (is_countable($sex)) {

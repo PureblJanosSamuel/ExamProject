@@ -2,7 +2,6 @@
 session_start();
     
 include("functions.php");
-include("dbconnect.php");
 
 $logged_in = isset($_SESSION['logged_in']) && $_SESSION['logged_in'];
 $is_admin = is_admin($con);

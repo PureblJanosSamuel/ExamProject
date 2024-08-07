@@ -103,19 +103,18 @@ $logged_in =  isset($_SESSION['logged_in']) && $_SESSION['logged_in'];
                       <div class="collapse show" id="home-collapse">
                         <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small" id="felsor">
                           <?php
-                            $options = "SELECT * FROM animalspecies";
-                            $options_run = mysqli_query($con, $options);
+                            $options_run = DB::GET("SELECT * FROM animalspecies",array());
 
                             if(mysqli_num_rows($options_run) > 0){
                               
                               foreach($options_run as $animallist){
                                   $checkeds = [];
-                                  if(isset($_GET['allatok'])){
-                                    $checkeds = $_GET['allatok'];
+                                  if(isset($_GET['animals'])){
+                                    $checkeds = $_GET['animals'];
                                   }
 
                                 ?>
-                                  <li class="checkbox"><label><input type="checkbox" class="icheck" name="allatok[]" value="<?= $animallist['ID']; ?>" 
+                                  <li class="checkbox"><label><input type="checkbox" class="icheck" name="animals[]" value="<?= $animallist['ID']; ?>" 
                                   <?php if (in_array($animallist['ID'], $checkeds)) { echo "checked"; } ?>
                                   > <?= $animallist['Name']; ?></label></li>
                                 <?php
@@ -138,11 +137,11 @@ $logged_in =  isset($_SESSION['logged_in']) && $_SESSION['logged_in'];
                               $names = array('Hím','Nőstény','Egyéb');
                             foreach ($names as $n) {
                               $used = [];
-                              if(isset($_GET['ivar'])){
-                                $used = $_GET['ivar'];
+                              if(isset($_GET['CanBaby'])){
+                                $used = $_GET['CanBaby'];
                               }
                               ?>
-                                <li class="checkbox"><label><input type="checkbox" class="icheck" name="ivar[]" value="<?= $n ?>"
+                                <li class="checkbox"><label><input type="checkbox" class="icheck" name="CanBaby[]" value="<?= $n ?>"
                                 <?php if(in_array($n, $used)) { echo "checked"; } ?>
                                 ><?= $n?></label></li>
                               <?php
@@ -159,15 +158,15 @@ $logged_in =  isset($_SESSION['logged_in']) && $_SESSION['logged_in'];
                   <div class="padding"></div>
                   
                   <!-- BEGIN FILTER BY DATE -->
-                  <h4>Kor:</h4>
+                  <h4>age:</h4>
                   <?php
                     $age= 0;
-                    if(isset($_GET['kor'])){
-                      $age = $_GET['kor'];
+                    if(isset($_GET['age'])){
+                      $age = $_GET['age'];
                     }
                   ?>
 
-                   <input type="number" name="kor" id="agebox" min="0" value="<?= $age ?>">
+                   <input type="number" name="age" id="agebox" min="0" value="<?= $age ?>">
 
                   <button type="submit" class="btn btn-primary">Keress</button>
                 </form>
@@ -192,19 +191,19 @@ $logged_in =  isset($_SESSION['logged_in']) && $_SESSION['logged_in'];
                     <?php
                     
                       $SexSearch = [];
-                      if(isset($_GET['ivar'])){
-                        $SexSearch = $_GET['ivar'];
+                      if(isset($_GET['CanBaby'])){
+                        $SexSearch = $_GET['CanBaby'];
                       }
 
-                      if(isset($_GET['allatok'])){
+                      if(isset($_GET['animals'])){
                         $animalsneeded = [];
-                        $animalsneeded = $_GET['allatok'];
+                        $animalsneeded = $_GET['animals'];
                         foreach($animalsneeded as $rowanimal){
-                            $result = kiir("SELECT * FROM animalinfo WHERE Specie IN ('$rowanimal') AND FoundHome = 'Nem'", $SexSearch, $age);
+                            $result = show("SELECT * FROM animalinfo WHERE Specie IN ('$rowanimal') AND FoundHome = 'Nem'", $SexSearch, $age);
                         }
                       }
                       else{
-                        $result = kiir("SELECT * FROM animalinfo WHERE FoundHome = 'Nem'", $SexSearch, $age);
+                        $result = show("SELECT * FROM animalinfo WHERE FoundHome = 'Nem'", $SexSearch, $age);
                       }
                     ?>
                     </tbody>

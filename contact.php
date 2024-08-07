@@ -2,7 +2,6 @@
   session_start();
 
   include("functions.php");
-  include("dbconnect.php");
 
   $user_data = check_login($con);
   $is_admin = is_admin($con);
