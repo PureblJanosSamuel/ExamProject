@@ -1,10 +1,18 @@
 <?php
+include("dbconnect.php");
 
 class DB{
   static function GET($sql, $arr){
     $db = new mysqli('localhost', 'root', '', 'otthon_kereso');
     $stmt = $db->prepare($sql);
-    $stmt->execute($arr);
+    $types = [];
+    foreach($arr as $item){
+      $types[] = substr(gettype($item),0,1);
+    }
+    $types = implode('', $types);
+    $stmt->bind_param($types, ...$arr);
+    $stmt->execute();
+    //$stmt->execute($arr);
     return $stmt->get_result();
   }
 
