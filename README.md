@@ -1,6 +1,6 @@
 # Home finder
 
-> ### About
+> [!NOTE]
 > This was our last exam in a Hungarian school,
 > so some texts will be shown in Hungarian.
 > The exercise was done in groups, the code was rewritten later,
