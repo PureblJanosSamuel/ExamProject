@@ -61,6 +61,3 @@ Now you can open this project in you browser, if you type
 
 ## Contributing
 This is an open prjoect, we have some new features and updates comming, but feel free to try it out, or use some parts for your project.
-
-## Licence
-[MIT](https://choosealicense.com/licenses/mit/)
